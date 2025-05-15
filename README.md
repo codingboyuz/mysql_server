@@ -93,4 +93,4 @@ Agar hammasi to'g'ri bo'lsa, muvaffaqiyatli ulanasiz.
 
 ---
 
-Tayyor! Agar qo'shimcha muammo yoki savol bo'lsa, yozing! 😊
+
