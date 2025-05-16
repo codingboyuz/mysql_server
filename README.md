@@ -62,6 +62,85 @@ MySQL serverni Windowsda yaratish va local tarmoqdagi barcha kompyuterlardan kir
    ```
 ---
 
+MySQL’da biror **user (foydalanuvchi)** ga qanday **bazalar (databases)** va **jadval (tables)** ga ruxsat (access) berilganini ko‘rish uchun quyidagi amallarni bajarish mumkin:
+
+---
+
+
+## ✅ 2. **Foydalanuvchilar ro‘yxatini ko‘rish:**
+
+```sql
+SELECT User, Host FROM mysql.user;
+```
+
+Bu bilan barcha foydalanuvchilar va qaysi manzildan ulanganini ko‘rasiz.
+
+---
+
+## ✅ 3. **Userning ruxsatlarini ko‘rish:**
+
+Masalan, `your_user` foydalanuvchisi uchun:
+
+```sql
+SHOW GRANTS FOR 'your_user'@'localhost';
+```
+
+Natijada sizga shunga o‘xshash narsa chiqadi:
+
+```
+GRANT SELECT, INSERT ON your_database.* TO 'your_user'@'localhost';
+```
+
+---
+
+## ✅ 4. **Barcha mavjud bazalarni ko‘rish:**
+
+```sql
+SHOW DATABASES;
+```
+
+---
+
+## ✅ 5. **Bazadagi barcha jadval (table)larni ko‘rish:**
+
+Avval kerakli bazaga o‘ting:
+
+```sql
+USE your_database;
+```
+
+Keyin:
+
+```sql
+SHOW TABLES;
+```
+
+---
+
+## ✅ 6. **Jadval tuzilmasini ko‘rish:**
+
+```sql
+DESCRIBE your_table;
+```
+
+yoki:
+
+```sql
+SHOW COLUMNS FROM your_table;
+```
+
+---
+
+## 🔍 Agar sizga **boshqa foydalanuvchilar qanday ruxsatga ega** ekanini ko‘rish kerak bo‘lsa — root userdan quyidagi so‘rov bilan barcha ruxsatlarni tekshiring:
+
+```sql
+SELECT * FROM mysql.db WHERE User = 'your_user';
+```
+
+---
+
+
+
 ### **4. Windows Firewall Sozlamalari**  
 - **Windows Defender Firewall**da **MySQL porti (standart: 3306)** uchun inbound ruxsat qo'shing:  
   1. **Control Panel > Windows Defender Firewall > Advanced settings**ga kiring.  
